@@ -1,6 +1,6 @@
 {
   "name": "react-resize-hook",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "React resize observer hook",
   "main": "index.js",
   "scripts": {
