@@ -1,5 +1,9 @@
 # Change Log
 
+## 1.0.4
+
+Fix invalid hook, moved react as dev dependency
+
 ## 1.0.3
 
 Change readme title and add changelog :)
