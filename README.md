@@ -1,4 +1,4 @@
-# react-resize-observer
+# react-resize-hook
 Resize observer hook for react with typescript support and resize observer polyfill.
 
 ## Install
