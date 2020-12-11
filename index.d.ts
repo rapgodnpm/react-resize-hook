@@ -1,4 +1,4 @@
-declare module 'react-resize-observer' {
+declare module 'react-resize-hook' {
   type IUseResizeObserverElement = {
     element: HTMLElement
   } | {
