@@ -4,6 +4,7 @@
   "description": "React resize observer hook",
   "main": "index.js",
   "scripts": {
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,10 +26,10 @@
   "homepage": "https://github.com/rapgodnpm/react-resize-observer#readme",
   "types": "index.d.ts",
   "dependencies": {
-    "react": "^16.14.0",
     "resize-observer-polyfill": "^1.5.1"
   },
   "devDependencies": {
-    "typescript": "^3.2.2"
+    "typescript": "^3.2.2",
+    "react": "^16.14.0"
   }
 }
