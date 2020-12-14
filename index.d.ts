@@ -1,4 +1,3 @@
-export declare const useDevicePixelRatio: () => number | null;
 declare type IUseResizeObserverElement = {
     element: HTMLElement;
 } | {

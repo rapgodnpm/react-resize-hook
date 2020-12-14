@@ -14,18 +14,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.useResizeObserver = exports.useDevicePixelRatio = void 0;
+exports.useResizeObserver = void 0;
 var react_1 = __importDefault(require("react"));
 var resize_observer_polyfill_1 = __importDefault(require("resize-observer-polyfill"));
-var useDevicePixelRatio = function () {
-    var _a = react_1.default.useState(1), devicePixelRatio = _a[0], setDevicePixelRatio = _a[1];
-    react_1.default.useEffect(function () {
-        var _a;
-        setDevicePixelRatio(Math.ceil((_a = window.devicePixelRatio) !== null && _a !== void 0 ? _a : 1));
-    }, []);
-    return devicePixelRatio;
-};
-exports.useDevicePixelRatio = useDevicePixelRatio;
 var useResizeObserver = function (_a) {
     var _b = _a.handleHeight, handleHeight = _b === void 0 ? true : _b, _c = _a.handleWidth, handleWidth = _c === void 0 ? true : _c, props = __rest(_a, ["handleHeight", "handleWidth"]);
     var _d = react_1.default.useState(undefined), width = _d[0], setWidth = _d[1];
