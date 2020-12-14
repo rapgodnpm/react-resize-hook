@@ -1,6 +1,6 @@
 {
   "name": "react-resize-hook",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "React resize observer hook",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rapgodnpm/react-resize-observer.git"
+    "url": "git+https://github.com/rapgodnpm/react-resize-hook.git"
   },
   "keywords": [
     "react",
@@ -21,9 +21,9 @@
   "author": "rapgod",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rapgodnpm/react-resize-observer/issues"
+    "url": "https://github.com/rapgodnpm/react-resize-hook/issues"
   },
-  "homepage": "https://github.com/rapgodnpm/react-resize-observer#readme",
+  "homepage": "https://github.com/rapgodnpm/react-resize-hook#readme",
   "types": "index.d.ts",
   "dependencies": {
     "resize-observer-polyfill": "^1.5.1"
