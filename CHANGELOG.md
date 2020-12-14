@@ -1,5 +1,10 @@
 # Change Log
 
+## 1.0.9
+
+Update react and typescript to latest versions
+Removed build files from .gitignore since they were not published on npm
+
 ## 1.0.4
 
 Fix invalid hook, moved react as dev dependency
