@@ -1,16 +1,6 @@
 import React from 'react'
 import ResizeObserver from 'resize-observer-polyfill'
 
-export const useDevicePixelRatio = (): number | null => {
-  const [devicePixelRatio, setDevicePixelRatio] = React.useState(1)
-
-  React.useEffect(() => {
-    setDevicePixelRatio(Math.ceil(window.devicePixelRatio ?? 1))
-  }, [])
-
-  return devicePixelRatio
-}
-
 type IUseResizeObserverElement = {
   element: HTMLElement
 } | {
