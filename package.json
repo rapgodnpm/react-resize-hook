@@ -1,6 +1,6 @@
 {
   "name": "react-resize-hook",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "React resize observer hook",
   "main": "index.js",
   "scripts": {
@@ -29,7 +29,7 @@
     "resize-observer-polyfill": "^1.5.1"
   },
   "devDependencies": {
-    "typescript": "^3.2.2",
-    "react": "^16.14.0"
+    "react": "^17.0.1",
+    "typescript": "^4.1.3"
   }
 }
