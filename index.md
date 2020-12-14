@@ -1,37 +1,57 @@
-## Welcome to GitHub Pages
+# react-resize-hook
+Resize observer hook for react with typescript support and resize observer polyfill.
 
-You can use the [editor on GitHub](https://github.com/rapgodnpm/react-resize-observer/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+## Install
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+npm install --save react-resize-hook
 
-### Markdown
+or
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+yarn add react-resize-hook
 
-```markdown
-Syntax highlighted code block
+## How to
 
-# Header 1
-## Header 2
-### Header 3
+To watch for resizes on an element use:
 
-- Bulleted
-- List
+```javascript
+...
+import { useResizeObserver } from 'react-resize-hook'
+...
 
-1. Numbered
-2. List
+const SomeFancyComponent = () => {
+  const containerRef = React.useRef(null)
+  const { width, height } = useResizeObserver({
+    element: containerRef.current,
+  })
 
-**Bold** and _Italic_ and `Code` text
+  return (
+    <div ref={containerRef}>
+      ...
+    </div>
+  )
+}
 
-[Link](url) and ![Image](src)
+...
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+By default `useResizeObserver` watches for both `width` and `height` changes. You can only listen to `width` or `height` by adjusting the `useResizeObserver` params:
 
-### Jekyll Themes
+```javascript
+  useResizeObserver({
+    element: someDomElement,
+    handleWidth: true // or false,
+    handleHeight: true // or false,
+  })
+```
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/rapgodnpm/react-resize-observer/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+You can also observe changes on the entire page by calling:
 
-### Support or Contact
+```javascript
+  useResizeObserver({
+    watchEntirePage: true,
+    handleWidth: true // or false,
+    handleHeight: true // or false,
+  })
+```
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+Before the component is mounted (or before the first useEffect) `width` and `height` are undefined.
