@@ -21,17 +21,30 @@ var useResizeObserver = function (_a) {
     var _b = _a.handleHeight, handleHeight = _b === void 0 ? true : _b, _c = _a.handleWidth, handleWidth = _c === void 0 ? true : _c, props = __rest(_a, ["handleHeight", "handleWidth"]);
     var _d = react_1.default.useState(undefined), width = _d[0], setWidth = _d[1];
     var _e = react_1.default.useState(undefined), height = _e[0], setHeight = _e[1];
-    var elementToObserve = props['watchEntirePage'] ? document.body : props['element'];
-    react_1.default.useEffect(attachObserverEffect, [elementToObserve]);
+    react_1.default.useEffect(attachObserverEffect);
     function attachObserverEffect() {
-        if (!elementToObserve) {
+        if (!props['watchEntirePage'] && !props['elementRef'].current) {
             return;
         }
+        var elementToObserve = getElementToObserve();
         var resizeObserver = new resize_observer_polyfill_1.default(updateWidthAndHeightOnResize);
         resizeObserver.observe(elementToObserve);
         return function () {
             resizeObserver.disconnect();
         };
+    }
+    function getElementToObserve() {
+        if (props['watchEntirePage']) {
+            return document.body;
+        }
+        if (!props['parentLevel']) {
+            return props['elementRef'].current;
+        }
+        var elementToObserve = props['elementRef'].current;
+        for (var i = 0; i < props['parentLevel']; i++) {
+            elementToObserve = elementToObserve.parentElement;
+        }
+        return elementToObserve;
     }
     function updateWidthAndHeightOnResize(_a) {
         var _b = _a[0].contentRect, contentWidth = _b.width, contentHeight = _b.height;

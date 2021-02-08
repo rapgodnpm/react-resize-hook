@@ -2,7 +2,8 @@ import React from 'react'
 import ResizeObserver from 'resize-observer-polyfill'
 
 type IUseResizeObserverElement = {
-  element: HTMLElement
+  elementRef: React.MutableRefObject<HTMLElement>,
+  parentLevel?: number,
 } | {
   watchEntirePage: true,
 }
@@ -23,14 +24,14 @@ export const useResizeObserver = ({
   const [width, setWidth] = React.useState(undefined as number)
   const [height, setHeight] = React.useState(undefined as number)
 
-  const elementToObserve = props['watchEntirePage'] ? document.body : props['element']
-
-  React.useEffect(attachObserverEffect, [elementToObserve])
+  React.useEffect(attachObserverEffect)
 
   function attachObserverEffect() {
-    if (!elementToObserve) {
+    if (!props['watchEntirePage'] && !props['elementRef'].current) {
       return
     }
+
+    const elementToObserve = getElementToObserve()
 
     const resizeObserver = new ResizeObserver(updateWidthAndHeightOnResize)
     resizeObserver.observe(elementToObserve)
@@ -38,6 +39,24 @@ export const useResizeObserver = ({
     return () => {
       resizeObserver.disconnect()
     }
+  }
+
+  function getElementToObserve(): HTMLElement {
+    if (props['watchEntirePage']) {
+      return document.body
+    }
+
+    if (!props['parentLevel']) {
+      return props['elementRef'].current
+    }
+
+    let elementToObserve = props['elementRef'].current as HTMLElement
+
+    for (let i = 0; i < props['parentLevel']; i++) {
+      elementToObserve = elementToObserve.parentElement
+    }
+
+    return elementToObserve
   }
 
   function updateWidthAndHeightOnResize(
