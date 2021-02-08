@@ -1,6 +1,6 @@
 # Change Log
 
-## 1.1.9
+## 1.1.0
 
 Switch to using refs and intead of DOM elements! There were issues when, sometimes, the component would mount but the width and height would remain undefined. This happened because `element` was still null or undefined now this is fixed by using refs dirrectly.
 
