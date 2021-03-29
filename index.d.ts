@@ -1,5 +1,7 @@
+import React from 'react';
 declare type IUseResizeObserverElement = {
-    element: HTMLElement;
+    elementRef: React.MutableRefObject<HTMLElement>;
+    parentLevel?: number;
 } | {
     watchEntirePage: true;
 };
